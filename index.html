@@ -198,6 +198,34 @@
             .journal-grid { flex-direction: column; }
             .logo { font-size: 2.2rem; }
         }
+   /* スマホ向けの最終調整 */
+@media screen and (max-width: 480px) {
+  
+  /* 1. 題字（Ginza楽学倶楽部）を1行に収める */
+  .logo {
+    font-size: 1.6rem !important;    /* サイズを大幅に下げて1行に収める */
+    letter-spacing: 0.1em !important; /* 字間を詰める */
+    white-space: nowrap;              /* 絶対に改行させない */
+  }
+
+  /* 2. キャッチコピー（学びを楽しむ、〜）を1行にする */
+  .hero-text {
+    width: 95% !important;           /* 白い箱の幅を広げて余裕を作る */
+    padding: 30px 10px !important;    /* 左右の余白を削る */
+  }
+
+  .hero-text h2 {
+    font-size: 1.1rem !important;    /* 1行に収まるサイズまで下げる */
+    white-space: nowrap;              /* 絶対に改行させない */
+    letter-spacing: 0.05em;           /* 字間を調整 */
+  }
+
+  /* 3. ナビゲーション（ABOUT / ...）もはみ出さないように調整 */
+  .nav-main {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
+  }
+}
     </style>
 </head>
 <body>
