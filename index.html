@@ -133,7 +133,67 @@
 
         footer { padding: 100px 20px; text-align: center; font-size: 0.85rem; color: #999; border-top: 1px solid #f0f0f0; }
 
-        @media (max-width: 850px) {
+ /* --- ポップアップ全体の背景 --- */
+.popup-overlay {
+    display: none; /* 最初は隠す */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- ポップアップの白い箱 --- */
+.popup-content {
+    background-color: #fff;
+    width: 85%;            /* スマホで左右に少し余白を作る */
+    max-width: 500px;      /* PCで見ても大きすぎないように */
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.popup-content h3 {
+    font-family: 'Noto Serif JP', serif;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    text-align: left; /* 文章は左寄せが読みやすい */
+}
+
+/* --- 閉じるボタン --- */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    padding: 5px;
+}
+
+/* スマホ用の微調整 */
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 20px;
+        font-size: 0.95rem;
+    }
+    .popup-content h3 {
+        font-size: 1.2rem;
+    }
+} @media (max-width: 850px) {
             .pillar-card, .pillar-card.reverse { flex-direction: column; padding: 30px; }
             .journal-grid { flex-direction: column; }
             .logo { font-size: 2.2rem; }
@@ -141,6 +201,16 @@
     </style>
 </head>
 <body>
+<!-- ポップアップ本体 -->
+<div id="welcomePopup" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h3>お知らせ</h3>
+        <p>Ginza楽学倶楽部へようこそ。おとなの学びを楽しむための特別な空間をご案内します。</p>
+        <a href="#" class="btn-course" onclick="closePopup()" style="margin-top:0;">閉じる</a>
+    </div>
+</div>
+    
 
 <header>
     <h1 class="logo">Ginza楽学倶楽部</h1>
@@ -214,6 +284,18 @@
 </section>
 
 <footer>&copy; Ginza楽学倶楽部 All Rights Reserved.</footer>
+<script>
+    // ページを読み込んだら表示
+    window.onload = function() {
+        document.getElementById('welcomePopup').style.display = 'flex';
+    };
+
+    // ポップアップを閉じる関数
+    function closePopup() {
+        document.getElementById('welcomePopup').style.display = 'none';
+    }
+</script>
+    
 
 </body>
 </html>
