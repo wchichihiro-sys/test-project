@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginza楽学倶楽部 | おとなのたまり場</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@300;400&family=Mrs+Saint+Delafield&display=swap');
+
+        :root {
+            --lee-red: #b03a2e;
+            --lee-pink: #fdf2f4;
+            --lee-beige: #f9f6f2;
+            --gold-accent: #c5a059;
+            --lee-black: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            color: var(--lee-black);
+            background-color: #fff;
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background-color: var(--lee-pink);
+            padding: 70px 20px 50px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.35em;
+            color: var(--lee-black);
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.1), 
+                0px 0px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-main {
+            margin-top: 35px;
+            font-size: 0.9rem;
+            letter-spacing: 0.25em;
+            color: #777;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* --- ヒーローエリア --- */
+        .hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-text-box {
+            position: absolute;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-text {
+            background: rgba(255, 255, 255, 0.97);
+            padding: 55px 90px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .hero-text h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 1.9rem;
+            margin: 0;
+            letter-spacing: 0.15em;
+            line-height: 1.6;
+        }
+
+        /* --- 講座セクション --- */
+        .pillar-section { padding: 110px 20px; background-color: var(--lee-beige); }
+        .section-title { text-align: center; margin-bottom: 90px; }
+        .en-title { font-family: 'Mrs+Saint+Delafield', cursive; font-size: 3.8rem; color: var(--gold-accent); display: block; margin-bottom: -30px; }
+        .jp-title { font-family: 'Noto Serif JP', serif; font-size: 2.1rem; letter-spacing: 0.15em; }
+
+        .pillar-container { max-width: 1050px; margin: 0 auto; display: flex; flex-direction: column; gap: 90px; }
+        .pillar-card { display: flex; align-items: center; gap: 70px; background: #fff; padding: 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        .pillar-card.reverse { flex-direction: row-reverse; }
+        .pillar-image { flex: 1; height: 400px; }
+        .pillar-image img { width: 100%; height: 100%; object-fit: cover; border: 1px solid #f0f0f0; }
+        .pillar-info { flex: 1; }
+        .pillar-info h3 { font-family: 'Noto Serif JP', serif; font-size: 2rem; margin-top: 0; }
+        .pillar-info p { font-size: 1.2rem; line-height: 1.8; }
+        
+        .btn-course {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 18px 60px;
+            background-color: var(--lee-red);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .btn-course:hover { background-color: var(--lee-black); box-shadow: 0 10px 25px rgba(176,58,46,0.2); }
+
+        /* --- 読み物（Journal） --- */
+        .journal-section { padding: 110px 20px; text-align: center; }
+        .journal-grid { max-width: 1050px; margin: 0 auto; display: flex; gap: 50px; text-align: left; }
+        .journal-card { flex: 1; text-decoration: none; color: inherit; }
+        .journal-img { width: 100%; height: 280px; object-fit: cover; margin-bottom: 25px; transition: 0.4s; }
+        .journal-card:hover .journal-img { transform: scale(1.02); }
+        .journal-title { font-family: 'Noto Serif JP', serif; font-size: 1.3rem; line-height: 1.7; font-weight: 700; }
+
+        /* --- ギャラリー --- */
+        .gallery-section { padding: 110px 20px; background-color: var(--lee-beige); text-align: center; }
+        .polaroid-container { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .polaroid { background: #fff; padding: 15px 15px 50px 15px; width: 260px; box-shadow: 0 15px 30px rgba(0,0,0,0.06); transform: rotate(-1deg); }
+        .polaroid:nth-child(even) { transform: rotate(1.5deg); }
+        .polaroid img { width: 100%; height: 200px; object-fit: cover; }
+        .polaroid p { font-family: 'Noto Serif JP', serif; font-size: 0.95rem; margin-top: 20px; font-weight: 700; }
+
+        footer { padding: 100px 20px; text-align: center; font-size: 0.85rem; color: #999; border-top: 1px solid #f0f0f0; }
+
+        @media (max-width: 850px) {
+            .pillar-card, .pillar-card.reverse { flex-direction: column; padding: 30px; }
+            .journal-grid { flex-direction: column; }
+            .logo { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="logo">Ginza楽学倶楽部</h1>
+    <nav class="nav-main">About / Course / Journal / Contact</nav>
+</header>
+
+<section class="hero">
+    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ginza楽学倶楽部 空間">
+    <div class="hero-text-box">
+        <div class="hero-text">
+            <h2>学びを楽しむ、<br>おとなのたまり場。</h2>
+        </div>
+    </div>
+</section>
+
+<section class="pillar-section">
+    <div class="section-title">
+        <span class="en-title">Our Learning</span>
+        <h2 class="jp-title">講座のご案内</h2>
+    </div>
+    <div class="pillar-container">
+        <!-- 古典芸能ふぁんだむ -->
+        <div class="pillar-card">
+            <!-- 画像を富士山に変更[cite: 1] -->
+            <div class="pillar-image"><img src="富士山.jpg" alt="富士山"></div>
+            <div class="pillar-info">
+                <h3>古典芸能ふぁんだむ</h3>
+                <p>歌舞伎や能の構造を深く読み解く。赤城神社での特別な時間を通じて、物語の真髄に触れる贅沢を[cite: 1]。</p>
+                <a href="https://lets-grace.com/contact" class="btn-course">詳しく見る・申し込む</a>
+            </div>
+        </div>
+        <!-- ライフサロン -->
+        <div class="pillar-card reverse">
+            <div class="pillar-image"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&q=80&w=1000" alt="ライフサロン"></div>
+            <div class="pillar-info">
+                <h3>ライフサロン</h3>
+                <p>ライティングやマナーを通じて、日常の感性をアップデート。自分自身を丁寧に整える大人のための場所です。</p>
+                <a href="https://lets-grace.com/contact" class="btn-course">詳しく見る・申し込む</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="journal-section">
+    <div class="section-title">
+        <span class="en-title">Journal</span>
+        <h2 class="jp-title">知のしずく</h2>
+    </div>
+    <div class="journal-grid">
+        <a href="https://lets-grace.com/" class="journal-card">
+            <div style="overflow:hidden; margin-bottom:20px;"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=600" class="journal-img"></div>
+            <h4 class="journal-title">九鬼周造『「いき」の構造』と銀座の美学。洗練の正体とは[cite: 1]</h4>
+        </a>
+        <a href="https://lets-grace.com/" class="journal-card">
+            <div style="overflow:hidden; margin-bottom:20px;"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600" class="journal-img"></div>
+            <h4 class="journal-title">想いを伝える「大人のライティング」。日々の言葉を美しく</h4>
+        </a>
+    </div>
+</section>
+
+<section class="gallery-section">
+    <div class="section-title">
+        <span class="en-title">Archive</span>
+        <h2 class="jp-title">活動の記録</h2>
+    </div>
+    <div class="polaroid-container">
+        <div class="polaroid"><img src="会場.jpg" alt="赤城神社"><p>赤城神社での講座[cite: 1]</p></div>
+        <div class="polaroid"><img src="う.jpg" alt="木ノ下氏・田中氏"><p>講師陣との深い対話[cite: 1]</p></div>
+        <div class="polaroid"><img src="歌舞伎ちらし.jpg" alt="ちらし"><p>第14回 歌舞伎のセカイ[cite: 1]</p></div>
+    </div>
+</section>
+
+<footer>&copy; Ginza楽学倶楽部 All Rights Reserved.</footer>
+
+</body>
+</html>
